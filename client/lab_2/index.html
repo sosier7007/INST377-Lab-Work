@@ -1,45 +1,92 @@
-YOUR NAME Lab 2: CSS Selectors
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8'/>
+        <title> Sarah Osier Lab 2: CSS Selectors</title>
+        <link rel='stylesheet' href='styles.css'/>
+    </head>
 
-Selectors
-Main Page
+    <body class="wrapper">
+        <h1 class='title'>Sarah Osier Lab 2: CSS Selectors</h1>
 
-First, the basics.
+        <nav>
+            <a href='selectors.html'>Selectors</a>
+            <a href='index.html'>Main Page</a>
+        </nav>
 
-You need the following to build your website.
+        <h2 class="subtitle">First, the basics.</h2>
 
-HTML and CSS
-Javascript
-Node.js
-And other web development frameworks
+        <p>You need the following to build your website.</p>
 
-You should list your top 3 goals for the class below.
+        <div class='section_1'>
+            <ul>
+                <li>HTML and CSS</li>
+                <li>Javascript</li>
+                <li>Node.js</li>
+                <li>And other web development frameworks</li>
+            </ul>
+            
+            <p>You should list your top 3 goals for the class below.</p>
+        
+            <ol>
+                <li>Learn front-end web design</li>
+                <li>Learn new programming languages</li>
+                <li>Learn how to work with others in a technical space</li>
+                <li>Learn popular web dev frameworks</li>
+            </ol>
+        </div>
+    
 
-Learn front-end web design
-Learn new programming languages
-Learn how to work with others in a technical space
-Learn popular web dev frameworks
+        <div class="section_2">
+            <h2 class="subtitle">Let's Try Some Inline Elements</h2>
 
-Let's Try Some Inline Elements
+            <p class="default">Sometimes you want to <em>draw attention to something</em> in a line of text.</p>
 
-Sometimes you want to draw attention to something in a line of text.
+            <p class="default">Sometimes you want to <strong>strongly emphasize something</strong> in the text.</p>
+    
+            <p class="default"><em><strong>Sometimes you want to do both.</strong></em></p>
+        </div>
 
-Sometimes you want to strongly emphasize something in the text.
+        <div class="section_3">
+            <h3>Empty Elements</h3>
 
-Sometimes you want to do both.
+            <p>
+                Soft line breaks can't wrap anything.<br>
+                Neither can image tags, or hard lines.<br>
+                Add a hard line under here, and make sure you've used some soft line breaks to match your page to the sample.
+            </p>
+            <hr>
+        </div>
 
-Empty Elements
+        <div class="section_4 default">
+            <div class="left default">
+                <h2>Images</h2>
 
-Soft line breaks can't wrap anything. Neither can image tags, or hard lines.
-Add a hard line under here, and make sure you've used some soft line breaks to match your page to the sample.
+                <p>Don't forget to use alt text on your images. It's important for accessibility.</p><br>
+                <p>If you build this page right, your images will form a small "carousel"</p><br>
+            </div>
 
-Images 
-Don't forget to use alt text on your images. It's important for accessibility.
-If you build this page right, your images will form a small "carousel"
+            <div class="right">
+                <div class="carousel">
+                    <div class="slides">
+                        <img src="images/onigiri_1.png" alt='A happy onigiri'/>
+                        <img src="images/onigiri_2.png" alt='A smiling onigiri'/>
+                        <img src="images/onigiri_3.png" alt='A bashful onigiri'/>
+                        <img src="images/onigiri_4.png" alt='A content onigiri'/>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-onigiri_1
-onigiri_2
-onigiri_3
-onigiri_4
-
-Include a hyperlink here to your github repository for class.
-If you want your repo to be private, be sure to invite Prof A as a "collaborator."
+        <br>
+        
+        <div class="title">
+            <hr>
+            <p>
+                <a href='https://github.com/sosier7007/INST377-Lab-Work.git'
+                    target='_blank'>Include a hyperlink here to your github repository for class.</a>
+            </p>
+            <p>Public repository</p>
+        </div>
+    </body>
+</html>
