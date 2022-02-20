@@ -159,3 +159,39 @@
       }
 
     }
+
+    .carousel {
+        overflow: hidden;
+        max-width: 600px;
+        position: relative;
+    }
+
+    .carousel .carousel_item,
+    .carousel .carousel_item--hidden {
+        display: none;
+    }
+
+    .carousel .carousel_item img {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+    }
+
+    .carousel .carousel_item--visible {
+        display: block;
+    }
+
+    .carousel .carousel_actions {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .carousel .carousel_actions button {
+        border-radius: 50px;
+        border: 0;
+        font-weight: bold;
+        cursor: pointer;
+        width: 80px;
+        height: 40px;
+    }
+

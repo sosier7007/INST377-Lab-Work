@@ -4,7 +4,7 @@
     <meta charset='UTF-8'/>
     <meta name='viewport'
     content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
-    <title>Sarah Osier Lab 3: Flexbox Demo</title>
+    <title>Sarah Osier Lab 4 - JavaScript 1: Browser Events and Selectors</title>
     <link rel='stylesheet' href='styles.css'/>
   </head>
   <body>
@@ -28,28 +28,37 @@
     </div>
 
     <div class='photo-grid-container'>
-        <div class='photo-grid'>
-          <div class='photo-grid-item a'>
+        <div class='carousel'>
+          <div class='carousel_item carousel_item--visible'>
             <img src='images/one.svg'/>
           </div>
-          <div class='photo-grid-item b'>
+          <div class='carousel_item'>
             <img src='images/two.svg'/>
           </div>
-          <div class='photo-grid-item c'>
+          <div class='carousel_item'>
             <img src='images/three.svg'/>
           </div>
-          <div class='photo-grid-item d'>
+          <div class='carousel_item'>
             <img src='images/four.svg'/>
           </div>
-          <div class='photo-grid-item e'>
+          <div class='carousel_item'>
             <img src='images/five.svg'/>
+          </div>
+
+          <div class="carousel_actions">
+              <button id="carousel_button--prev">Previous</button>
+              <button id="carousel_button--next">Next</button>
           </div>
         </div>
     </div>
+
     <div class='footer'>
         <div class='footer-item footer-one'>footer item 1</div>
         <div class='footer-item footer-two'>footer item 2</div>
         <div class='footer-item footer-three'>footer item 3</div>
     </div>
+
+    <script type="text/javascript" src="script.js"></script>
+    
   </body>
 </html>
