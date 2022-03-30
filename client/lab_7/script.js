@@ -23,7 +23,7 @@ function restoArrayMake(dataArray) {
 
 function createHtmlList(collection) {
   console.log('fired HTML creator');
-  console.log(collection);
+  console.table(collection);
   const targetList = document.querySelector('.resto-list');
   targetList.innerHTML = '';
   collection.forEach((item) => {
