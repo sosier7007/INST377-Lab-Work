@@ -13,7 +13,7 @@ function restoArrayMake(dataArray) {
     return dataArray[restNum];
   });
 
-  console.log(listItems);
+  // console.log(listItems);
   return listItems;
 
   // range.forEach((item) => {
@@ -22,8 +22,8 @@ function restoArrayMake(dataArray) {
 }
 
 function createHtmlList(collection) {
-  console.log('fired HTML creator');
-  console.table(collection);
+  // console.log('fired HTML creator');
+  // console.log(collection);
   const targetList = document.querySelector('.resto-list');
   targetList.innerHTML = '';
   collection.forEach((item) => {
@@ -39,21 +39,46 @@ async function mainEvent() { // the async keyword means we can make API requests
   console.log('script loaded');
   const form = document.querySelector('.main_form');
   const submit = document.querySelector('.submit_button');
+
+  const resto = document.querySelector('#resto_name');
+  const zipcode = document.querySelector('#zipcode');
   submit.style.display = 'none';
 
   const results = await fetch('/api/foodServicesPG'); // This accesses some data from our API
   const arrayFromJson = await results.json(); // This changes it into data we can use - an object
-  console.log(arrayFromJson);
+  // console.log(arrayFromJson);
 
+  // to prevent a race condition on data load:
   if (arrayFromJson.data.length > 0) {
     submit.style.display = 'block';
+
+    let currentArray = [];
+    resto.addEventListener('input', async (event) => {
+      console.log(event.target.value);
+
+      // if (currentArray.length < 1) { // handle error if array is empty
+      // console.log('empty');
+      //  return;
+      // }
+
+      const selectResto = arrayFromJson.data.filter((item) => {
+        const lowerName = item.name.toLowerCase();
+        const lowerValue = event.target.value.toLowerCase();
+        return lowerName.includes(lowerValue);
+      });
+
+      console.log(selectResto);
+      createHtmlList(selectResto);
+    });
+
     form.addEventListener('submit', async (submitEvent) => { // async has to be declared all the way to get an await
       submitEvent.preventDefault(); // This prevents your page from refreshing!
-      console.log('form submission'); // this is substituting for a "breakpoint"
+      // console.log('form submission'); // this is substituting for a "breakpoint"
       // arrayFromJson.data - we're accessing a key called 'data' on the returned object
       // it contains all 1,000 records we need
-      const restoArray = restoArrayMake(arrayFromJson.data);
-      createHtmlList(restoArray);
+      currentArray = restoArrayMake(arrayFromJson.data);
+      console.log(currentArray);
+      createHtmlList(currentArray);
     });
   }
 }
