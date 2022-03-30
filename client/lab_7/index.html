@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sarah Osier: Lab 7 - Filtering Data with a Typehead Form Input</title>
+    <! <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <link rel='stylesheet' href='styles.css'/>
+  </head>
+  <body>
+    <header class='wrapper'>
+      <h1>Sarah Osier's Lab 7</h1>
+    </header>
+    <div class="box">
+      <form method="get" class="main_form container column" >
+            <div class='form-row'>
+              <label for='first-name'>First Name</label>
+              <input id='first-name' name='first-name' type='text'/>
+            </div>
+            <div class='form-row'>
+              <label for='food-preference'>Food Preference</label>
+              <input id='food-preference' name='food-preference' type='text'/>
+            </div>
+            <fieldset class='legacy-form-row'>
+              <legend>Veggie or Vegan?</legend>
+              <input id='veggie-1'
+                    name='veggie'
+                    type='radio'
+                    value='yes' />
+              <label for='veggie-1' class='radio-label'>Yes</label>
+              <input id='veggie-2'
+                    name='veggie'
+                    type='radio'
+                    value='no'
+                    checked />
+              <label for='veggie-2' class='radio-label'>No</label>
+            </fieldset>
+            <div class='form-row'>
+              <button class='submit_button'>Submit</button>
+            </div>
+      </form>
+      <div class="container column">
+        <h2>List of Restaurants:</h2>
+        <br>
+        <ul class="resto-list"></ul>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+
+  </body>
+</html>
