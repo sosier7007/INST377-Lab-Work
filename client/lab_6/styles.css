@@ -125,6 +125,10 @@ box-shadow: none;
   background-color: #fdff98;
 }
 
+.submit_button{
+  display: none;
+}
+
 @media only screen and (min-width: 700px) {
 
   .container {
