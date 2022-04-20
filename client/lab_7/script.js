@@ -71,6 +71,25 @@ async function mainEvent() { // the async keyword means we can make API requests
       createHtmlList(selectResto);
     });
 
+    // zipcode search
+    zipcode.addEventListener('input', async (event) => {
+      console.log(event.target.value);
+
+      // if (currentArray.length < 1) { // handle error if array is empty
+      // console.log('empty');
+      //  return;
+      // }
+
+      const selectResto = arrayFromJson.data.filter((item) => {
+        const nums = item.zip;
+        const lowerValue = event.target.value.toLowerCase();
+        return nums.includes(lowerValue);
+      });
+
+      console.log(selectResto);
+      createHtmlList(selectResto);
+    });
+
     form.addEventListener('submit', async (submitEvent) => { // async has to be declared all the way to get an await
       submitEvent.preventDefault(); // This prevents your page from refreshing!
       // console.log('form submission'); // this is substituting for a "breakpoint"
