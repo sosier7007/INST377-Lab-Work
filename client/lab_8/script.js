@@ -35,7 +35,7 @@ function createHtmlList(collection) {
   });
 }
 
-// TODO: reloading restaurants makes forms jump around css
+// TODO: reloading restaurants makes forms move around css
 function initMap(targetId) {
   const latlong = [38.784, -76.872]; // TODO: should be PG county, is Xinjiang
   const map = L.map(targetId).setView(latlong, 9);
@@ -50,9 +50,19 @@ function initMap(targetId) {
   return map;
 }
 
+// TODO: male sure this runs for filter fields
+// TODO: make sure filter fields work together
 function addMapMarkers(map, collection) {
+  // remove map markers
+  map.eachLayer((layer) => {
+    if (layer instanceof L.Marker) {
+      layer.remove();
+    }
+  });
+
   collection.forEach((item) => {
     const point = item.geocoded_column_1?.coordinates;
+    //  const {coordinates} = m.geocoded_column_1; - alternate use, destructuring assignment
     console.log(item.geocoded_column_1?.coordinates);
     L.marker([point[1], point[0]]).addTo(map);
   });
