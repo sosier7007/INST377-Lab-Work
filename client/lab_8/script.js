@@ -35,7 +35,6 @@ function createHtmlList(collection) {
   });
 }
 
-// TODO: reloading restaurants makes forms move around css
 function initMap(targetId) {
   const latlong = [38.784, -76.872]; // TODO: should be PG county, is Xinjiang
   const map = L.map(targetId).setView(latlong, 9);
@@ -50,7 +49,6 @@ function initMap(targetId) {
   return map;
 }
 
-// TODO: male sure this runs for filter fields
 // TODO: make sure filter fields work together
 function addMapMarkers(map, collection) {
   // remove map markers
@@ -89,20 +87,26 @@ async function mainEvent() { // the async keyword means we can make API requests
   const storedData = localStorage.getItem(retrievalVar);
   const storedDataArray = JSON.parse(storedData);
   console.log(storedData);
-  // const arrayFromJson = {data: []}; // TODO: Remove debug tool
 
   // to prevent a race condition on data load:
   if (storedDataArray.data.length > 0) {
     submit.style.display = 'block';
 
     let currentArray = [];
+
+    form.addEventListener('submit', async (submitEvent) => { // async has to be declared all the way to get an await
+      submitEvent.preventDefault(); // This prevents your page from refreshing!
+      // console.log('form submission'); // this is substituting for a "breakpoint"
+      // arrayFromJson.data - we're accessing a key called 'data' on the returned object
+      // it contains all 1,000 records we need
+      currentArray = restoArrayMake(storedDataArray.data);
+      console.log(currentArray);
+      showing = createHtmlList(currentArray);
+      addMapMarkers(map, currentArray);
+    });
+
     resto.addEventListener('input', async (event) => {
       console.log(event.target.value);
-
-      // if (currentArray.length < 1) { // handle error if array is empty
-      // console.log('empty');
-      //  return;
-      // }
 
       const selectResto = storedDataArray.data.filter((item) => {
         const lowerName = item.name.toLowerCase();
@@ -112,16 +116,12 @@ async function mainEvent() { // the async keyword means we can make API requests
 
       console.log(selectResto);
       createHtmlList(selectResto);
+      addMapMarkers(map, selectResto);
     });
 
     // zipcode search
     zipcode.addEventListener('input', async (event) => {
       console.log(event.target.value);
-
-      // if (currentArray.length < 1) { // handle error if array is empty
-      // console.log('empty');
-      //  return;
-      // }
 
       const selectResto = storedDataArray.data.filter((item) => {
         const nums = item.zip;
@@ -131,17 +131,7 @@ async function mainEvent() { // the async keyword means we can make API requests
 
       console.log(selectResto);
       createHtmlList(selectResto);
-    });
-
-    form.addEventListener('submit', async (submitEvent) => { // async has to be declared all the way to get an await
-      submitEvent.preventDefault(); // This prevents your page from refreshing!
-      // console.log('form submission'); // this is substituting for a "breakpoint"
-      // arrayFromJson.data - we're accessing a key called 'data' on the returned object
-      // it contains all 1,000 records we need
-      currentArray = restoArrayMake(storedDataArray.data);
-      console.log(currentArray);
-      createHtmlList(currentArray);
-      addMapMarkers(map, currentArray);
+      addMapMarkers(map, selectResto);
     });
   }
 }

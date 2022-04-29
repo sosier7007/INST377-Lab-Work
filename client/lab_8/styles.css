@@ -20,7 +20,7 @@ body {
 .box{
 display:flex;
 flex-direction: column;
-align-items: center;
+align-items: flex-start;
 justify-content: center;
 }
 
@@ -189,6 +189,6 @@ box-shadow: none;
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: row; 
-    align-items: center; 
+    align-items: flex-start; 
   }
 }
