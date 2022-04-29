@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sarah Osier: Lab 8 - JSON to Map Markers</title>
+    <! <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <link rel='stylesheet' href='styles.css'/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+    crossorigin=""></script>
+    <link rel='stylesheet' href='styles.css'/>
+  </head>
+  <body>
+    <header class='wrapper'>
+      <h1>Sarah Osier's Lab 8</h1>
+    </header>
+    <div class="box">
+      <form method="get" class="main_form container column" >
+            <div class='form-row'>
+              <label for='resto_name'>Restaurant Name</label>
+              <input id='resto_name' name='resto_name' type='text'/>
+            </div>
+            <div class='form-row'>
+              <label for='zipcode'>Zipcode</label>
+              <input id='zipcode' name='zipcode' type='text'/>
+            </div>
+            <fieldset class='legacy-form-row'>
+              <legend>Veggie or Vegan?</legend>
+              <input id='veggie-1'
+                    name='veggie'
+                    type='radio'
+                    value='yes' />
+              <label for='veggie-1' class='radio-label'>Yes</label>
+              <input id='veggie-2'
+                    name='veggie'
+                    type='radio'
+                    value='no'
+                    checked />
+              <label for='veggie-2' class='radio-label'>No</label>
+            </fieldset>
+            <div class='form-row'>
+              <button class='submit_button'>Find Restaurants</button>
+            </div>
+      </form>
+
+      <div class="container column container_wide">
+        <div id="map"></div>
+        <h2>List of Restaurants:</h2>
+        <br>
+        <ul class="resto-list"></ul>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+
+  </body>
+</html>
